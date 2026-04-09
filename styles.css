@@ -1,0 +1,90 @@
+:root {
+    --primary-color: #0057FF;
+    --secondary-color: #6c757d;
+    --background-color: #f8f9fa;
+    --text-color: #212529;
+}
+
+body{
+ font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+ color: var(--text-color);
+ background-color: var(--background-color);
+ margin: 0;
+}
+
+header{
+    display: flex;
+    justify-content: space-around;
+    padding: 15px 30px;
+    background-color: var(--primary-color);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    align-items: center;
+     position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+a{
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.card{
+    background: var(--background-color);
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    margin: 20px 0;
+    transition: all 0.3s ease;
+    background-size: cover;
+    background-position: center;
+    width: 90%;
+    max-width: 800px;
+}
+
+.card:hover{
+    transform: translateY(-8px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+}
+
+#botao-atendimento {
+   text-transform: uppercase;
+    background-color: var(--primary-color);
+    color: #fff;
+    border-radius: 50px;
+    padding: 12px 25px;
+    border: none;
+    cursor: pointer;
+
+}
+
+#botao-atendimento:hover {
+    background-color:#000a58;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+h1{
+    color: var(--text-color);
+    text-align: center;
+    margin-top: 20px;
+}
+
+li{
+    padding: 10px;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+header nav ul {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+    margin: 0;
+    padding: 0;
+}
