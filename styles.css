@@ -32,12 +32,17 @@ a{
 
 .cards {
     display: flex;
-    gap: 20px;
     justify-content: center;
+    gap: 20px;
     flex-wrap: wrap;
 }
 .card {
-    width: 250px;
+    width: 260px;
+    background: #fff;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
 }
 .card:hover{
     transform: translateY(-8px);
@@ -52,12 +57,15 @@ a{
     padding: 12px 25px;
     border: none;
     cursor: pointer;
+    transition: all 0.3s ease;
+
 
 }
 
 .botao:hover {
     background-color:#000a58;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px);
 }
 
 h1{
@@ -73,7 +81,6 @@ li{
 main{
     display: flex;
     flex-direction: column;
-    align-items: center;
     padding: 20px;
 }
 
@@ -111,20 +118,53 @@ header nav ul li a:hover {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 60px 20px;
+    padding: 80px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.hero-texto {
+    max-width: 500px;
 }
 .hero-texto {
     max-width: 500px;
 }
+
+.hero-texto h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.hero-texto p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+.hero-imagem {
+    width: 400px;
+    height: 300px;
+    background: linear-gradient(135deg, #0057FF, #00A3FF);
+    border-radius: 20px;
+}
 section{
-    padding: 60px 20px;
+    padding: 80px 20px;
 }
 #beneficios{
     background-color: #fff;
 
 }
 #cta-final{
-    background-color: var(--primary-color);
+    background: linear-gradient(135deg, #0057FF, #003bb5);
     color: #fff;
     text-align: center;
+    border-radius: 20px;
+    margin: 40px 20px;
+}
+
+#inicio {
+    background: linear-gradient(135deg, #f0f4ff, #ffffff);
+}
+
+h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
 }
