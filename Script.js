@@ -1,15 +1,24 @@
-document.addEventListener("DOMContentLoaded", function () {
-  const botao = document.getElementById("menu-servicos");
-  const menu = document.getElementById("submenu");
 
-  botao.addEventListener("click", function(e) {
-    e.preventDefault();
-    menu.classList.toggle("ativo");
-  });
 
-  document.addEventListener("click", function(e) {
-    if (!botao.contains(e.target) && !menu.contains(e.target)) {
-      menu.classList.remove("ativo");
-    }
-  });
-});
+// Script.js — RKAR Seguros
+ 
+// ===========================
+// SUBMENU SERVIÇOS
+// ===========================
+const menuServicos = document.getElementById('menu-servicos');
+const submenu = document.getElementById('submenu');
+ 
+if (menuServicos && submenu) {
+    // Abre/fecha ao clicar
+    menuServicos.addEventListener('click', function (e) {
+        e.preventDefault();
+        submenu.classList.toggle('ativo');
+    });
+ 
+    // Fecha ao clicar fora
+    document.addEventListener('click', function (e) {
+        if (!menuServicos.contains(e.target) && !submenu.contains(e.target)) {
+            submenu.classList.remove('ativo');
+        }
+    });
+}

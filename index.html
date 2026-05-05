@@ -1,155 +1,170 @@
+
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Rkar Seguros</title>
-
-<link rel="stylesheet" href="styles.css">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rkar Seguros</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
-
+ 
 <body>
-
+ 
 <header>
     <div class="logo">
         RKAR <span>SEGUROS</span>
     </div>
-
+ 
     <nav>
         <ul>
             <li><a href="#">Início</a></li>
             <li><a href="#">Sobre Nós</a></li>
             <li><a href="#">Portal</a></li>
             <li class="dropdown">
-            <a href="#" id="menu-servicos">Serviços ▾</a>
+                <!-- corrigido: adicionado id para o JS funcionar -->
+                <a href="#" id="menu-servicos">Serviços ▾</a>
                 <ul class="submenu" id="submenu">
                     <li><a href="#"><i class="fas fa-car"></i> Seguro Auto</a></li>
-<li><a href="#"><i class="fas fa-heart"></i> Seguro de Vida</a></li>
-<li><a href="#"><i class="fas fa-home"></i> Residencial</a></li>
-<li><a href="#"><i class="fas fa-building"></i> Empresarial</a></li>
-  </ul>
-</li>
+                    <li><a href="#"><i class="fas fa-heart"></i> Seguro de Vida</a></li>
+                    <li><a href="#"><i class="fas fa-home"></i> Residencial</a></li>
+                    <li><a href="#"><i class="fas fa-building"></i> Empresarial</a></li>
+                </ul>
+            </li>
             <li><a href="#">Contato</a></li>
         </ul>
     </nav>
-    
-    <div class="icone">
+ 
+    <!-- corrigido: classe renomeada para icone-header (evita conflito com .icone dos cards) -->
+    <div class="icone-header">
         <i class="fas fa-shield-alt"></i>
     </div>
 </header>
-
+ 
 <main>
-
-<section id="inicio">
-  <div class="hero">
-
-    <div class="hero-texto">
-      <div class="tag">Seguro rápido, digital e sem burocracia</div>
-
-      <h1>
-        Proteja seu carro <br>
-        em <span>minutos</span>
-      </h1>
-
-      <p>
-        Seguro rápido, digital e sem burocracia para quem quer proteção de verdade com tecnologia.
-      </p>
-
-      <button class="botao">SIMULAR AGORA →</button>
-    </div>
-
-    <div class="hero-imagem">
-      <img src="hero.png" alt="Seguro de carro">
-    </div>
-
-  </div>
-</section>
-
-<section class="cards">
-  <div class="card">
-    <div class="icone"></div>
-    <h3>Simulação Online</h3>
-    <p>Em poucos minutos</p>
-  </div>
-
-  <div class="card">
-    <div class="icone"></div>
-    <h3>Atendimento 24h</h3>
-    <p>Sempre disponível</p>
-  </div>
-
-  <div class="card">
-    <div class="icone"></div>
-    <h3>Cobertura Completa</h3>
-    <p>Proteção total</p>
-  </div>
-
-  <div class="card">
-    <div class="icone"></div>
-    <h3>100% Digital</h3>
-    <p>Sem burocracia</p>
-  </div>
-</section>
-
-<section class="sobre">
-  <div class="sobre-container">
-
-    <div class="sobre-texto">
-      <span class="tag">Sobre nós</span>
-
-      <h2>Tecnologia e segurança para proteger o que é seu</h2>
-
-      <p>
-        A Rkar Seguros nasceu para simplificar o seguro automotivo,
-        oferecendo rapidez, segurança e atendimento de verdade.
-      </p>
-
-      <a href="#" class="btn-sobre">Fale conosco</a>
-    </div>
-
-    <div class="sobre-imagem">
-      <img src="sobre.png" alt="">
-    </div>
-
-  </div>
-</section>
-
+ 
+    <!-- HERO -->
+    <section id="inicio">
+        <div class="hero">
+ 
+            <div class="hero-texto">
+                <div class="tag">Seguro rápido, digital e sem burocracia</div>
+ 
+                <h1>
+                    Proteja seu carro <br>
+                    em <span>minutos</span>
+                </h1>
+ 
+                <p>
+                    Seguro rápido, digital e sem burocracia para quem quer proteção de verdade com tecnologia.
+                </p>
+ 
+                <a href="cotacao.html" class="btn-simular">SIMULAR AGORA →</a>
+            </div>
+ 
+            <div class="hero-imagem">
+                <img src="hero.png" alt="Seguro de carro">
+            </div>
+ 
+        </div>
+    </section>
+ 
+    <!-- CARDS — corrigido: ícones adicionados dentro de cada .icone -->
+    <section class="cards">
+        <div class="card">
+            <div class="icone">
+                <i class="fas fa-bolt"></i>
+            </div>
+            <h3>Simulação Online</h3>
+            <p>Em poucos minutos</p>
+        </div>
+ 
+        <div class="card">
+            <div class="icone">
+                <i class="fas fa-headset"></i>
+            </div>
+            <h3>Atendimento 24h</h3>
+            <p>Sempre disponível</p>
+        </div>
+ 
+        <div class="card">
+            <div class="icone">
+                <i class="fas fa-shield-alt"></i>
+            </div>
+            <h3>Cobertura Completa</h3>
+            <p>Proteção total</p>
+        </div>
+ 
+        <div class="card">
+            <div class="icone">
+                <i class="fas fa-mobile-alt"></i>
+            </div>
+            <h3>100% Digital</h3>
+            <p>Sem burocracia</p>
+        </div>
+    </section>
+ 
+    <!-- SOBRE -->
+    <section class="sobre">
+        <div class="sobre-container">
+ 
+            <div class="sobre-texto">
+                <span class="tag">Sobre nós</span>
+ 
+                <h2>Tecnologia e segurança para proteger o que é seu</h2>
+ 
+                <p>
+                    A Rkar Seguros nasceu para simplificar o seguro automotivo,
+                    oferecendo rapidez, segurança e atendimento de verdade.
+                </p>
+ 
+                <a href="#" class="btn-sobre">Fale conosco</a>
+            </div>
+ 
+            <div class="sobre-imagem">
+                <img src="sobre.png" alt="Sobre a Rkar Seguros">
+            </div>
+ 
+        </div>
+    </section>
+ 
 </main>
-
+ 
+<!-- FOOTER -->
 <footer class="footer">
-  <div class="footer-container">
-
-    <div class="footer-col">
-      <h3>Rkar Seguros</h3>
-      <p>Proteção digital e rápida para o seu veículo.</p>
+    <div class="footer-container">
+ 
+        <div class="footer-col">
+            <h3>Rkar Seguros</h3>
+            <p>Proteção digital e rápida para o seu veículo.</p>
+        </div>
+ 
+        <div class="footer-col">
+            <h4>Links</h4>
+            <ul>
+                <li><a href="#">Início</a></li>
+                <li><a href="#">Sobre</a></li>
+                <li><a href="#">Serviços</a></li>
+                <li><a href="#">Contato</a></li>
+            </ul>
+        </div>
+ 
+        <div class="footer-col">
+            <h4>Contato</h4>
+            <p>(11) 99999-9999</p>
+            <p>contato@rkar.com</p>
+        </div>
+ 
     </div>
-
-    <div class="footer-col">
-      <h4>Links</h4>
-      <ul>
-        <li><a href="#">Início</a></li>
-        <li><a href="#">Sobre</a></li>
-        <li><a href="#">Serviços</a></li>
-        <li><a href="#">Contato</a></li>
-      </ul>
+ 
+    <div class="footer-bottom">
+        <p>© 2026 Rkar Seguros</p>
     </div>
-
-    <div class="footer-col">
-      <h4>Contato</h4>
-      <p>(11) 99999-9999</p>
-      <p>contato@rkar.com</p>
-    </div>
-
-  </div>
-
-  <div class="footer-bottom">
-    <p>© 2026 Rkar Seguros</p>
-  </div>
 </footer>
-
+ 
 <script src="Script.js"></script>
 </body>
 </html>
+ 
