@@ -1,142 +1,129 @@
-// ================================
-// cotacao.js — VERSÃO CORRIGIDA
-// ================================
+const form = document.getElementById("formCotacao");
+const loading = document.getElementById("loading");
 
-// Espera o HTML carregar (ANTI BUG)
-document.addEventListener('DOMContentLoaded', function () {
+loading.style.opacity = "0";
 
-    const btnCalcular  = document.getElementById('btn-calcular');
-    const btnNova      = document.getElementById('btn-nova');
-    const formulario   = document.getElementById('formulario-cotacao');
-    const resultado    = document.getElementById('resultado');
-    const campoAno     = document.getElementById('campo-ano');
+form.addEventListener("submit", function(e){
 
-    const inputNome  = document.getElementById('nome');
-    const inputTipo  = document.getElementById('tipo');
-    const inputAno   = document.getElementById('ano');
-    const inputValor = document.getElementById('valor');
-    const inputCep   = document.getElementById('cep');
+    e.preventDefault();
 
-    const saidaNome  = document.getElementById('resultado-nome');
-    const saidaTipo  = document.getElementById('resultado-tipo');
-    const saidaPreco = document.getElementById('resultado-preco');
+    loading.style.opacity = "1";
 
-    // -------------------------------
-    // MOSTRAR / ESCONDER ANO
-    // -------------------------------
-    inputTipo.addEventListener('change', function () {
-        campoAno.style.display = this.value === 'auto' ? 'flex' : 'none';
-    });
+    // ETAPA 1
+    loading.innerHTML = `
+        <span></span>
+        <p>Analisando perfil...</p>
+    `;
 
-    // -------------------------------
-    // TABELAS
-    // -------------------------------
-    const taxas = {
-        auto: 0.0020,
-        vida: 0.0008,
-        residencial: 0.0012,
-        empresarial: 0.0025,
-    };
+    // ETAPA 2
+    setTimeout(() => {
 
-    const fatorAno = {
-        novo: 1.0,
-        medio: 1.2,
-        antigo: 1.5,
-    };
+        loading.innerHTML = `
+            <span></span>
+            <p>Buscando planos...</p>
+        `;
 
-    const nomesTipo = {
-        auto: '🚗 Seguro Auto',
-        vida: '❤️ Seguro de Vida',
-        residencial: '🏠 Residencial',
-        empresarial: '🏢 Empresarial',
-    };
+    }, 1500);
 
-    // -------------------------------
-    // CALCULAR
-    // -------------------------------
-    function calcular() {
+    // ETAPA 3
+    setTimeout(() => {
 
-        console.log("Botão clicado"); // DEBUG
+        loading.innerHTML = `
+            <span></span>
+            <p>Calculando cotação...</p>
+        `;
 
-        const nome  = inputNome.value.trim();
-        const tipo  = inputTipo.value;
-        const ano   = inputAno.value;
-        const valor = parseFloat(inputValor.value);
+    }, 3000);
 
-        // VALIDAÇÃO
-        if (!nome) {
-            alert('Informe seu nome');
-            return;
-        }
+    // RESULTADO FINAL
+    setTimeout(() => {
 
-        if (!tipo) {
-            alert('Selecione o tipo de seguro');
-            return;
-        }
+        const basico = Math.floor(Math.random() * 100 + 120);
+        const premium = Math.floor(Math.random() * 120 + 220);
+        const completo = Math.floor(Math.random() * 150 + 350);
 
-        if (isNaN(valor) || valor < 1000) {
-            alert('Valor inválido (mínimo R$1000)');
-            return;
-        }
+        loading.innerHTML = `
 
-        // CALCULO
-        let taxa = taxas[tipo];
+        <div class="resultado-cotacao">
 
-        if (!taxa) {
-            alert('Erro no tipo de seguro');
-            return;
-        }
+            <div class="resultado-topo">
 
-        if (tipo === 'auto') {
-            const fator = fatorAno[ano] || 1;
-            taxa *= fator;
-        }
+                <div class="check">
+                    ✔
+                </div>
 
-        let preco = valor * taxa;
+                <div>
+                    <h3>Cotação Finalizada</h3>
+                    <p>Encontramos os melhores planos para você.</p>
+                </div>
 
-        const precoFormatado = preco.toLocaleString('pt-BR', {
-            style: 'currency',
-            currency: 'BRL'
-        });
+            </div>
 
-        // SAÍDA
-        saidaNome.textContent  = nome;
-        saidaTipo.textContent  = nomesTipo[tipo];
-        saidaPreco.textContent = precoFormatado + '/mês';
+            <div class="planos">
 
-        formulario.style.display = 'none';
-        resultado.style.display  = 'block';
-    }
+                <!-- BÁSICO -->
+                <div class="plano">
 
-    // -------------------------------
-    // NOVA SIMULAÇÃO
-    // -------------------------------
-    function novaCotacao() {
-        formulario.style.display = 'flex';
-        resultado.style.display  = 'none';
+                    <span>BÁSICO</span>
 
-        inputNome.value  = '';
-        inputTipo.value  = '';
-        inputValor.value = '';
-        campoAno.style.display = 'none';
-    }
+                    <h2>
+                        R$ ${basico}
+                        <small>/mês</small>
+                    </h2>
 
-    // -------------------------------
-    // EVENTOS (SUPER IMPORTANTE)
-    // -------------------------------
-    btnCalcular.addEventListener('click', calcular);
-    btnNova.addEventListener('click', novaCotacao);
+                    <ul>
+                        <li>✔ Roubo e furto</li>
+                        <li>✔ Assistência básica</li>
+                    </ul>
 
-    // -------------------------------
-    // MÁSCARA CEP
-    // -------------------------------
-    inputCep.addEventListener('input', function () {
-        let v = this.value.replace(/\D/g, '');
-        if (v.length > 5) {
-            v = v.slice(0, 5) + '-' + v.slice(5, 8);
-        }
-        this.value = v;
-    });
+                </div>
+
+                <!-- PREMIUM -->
+                <div class="plano destaque">
+
+                    <div class="mais-vendido">
+                        MAIS VENDIDO
+                    </div>
+
+                    <span>PREMIUM</span>
+
+                    <h2>
+                        R$ ${premium}
+                        <small>/mês</small>
+                    </h2>
+
+                    <ul>
+                        <li>✔ Cobertura completa</li>
+                        <li>✔ Carro reserva</li>
+                        <li>✔ Assistência 24h</li>
+                    </ul>
+
+                </div>
+
+                <!-- COMPLETO -->
+                <div class="plano">
+
+                    <span>COMPLETO</span>
+
+                    <h2>
+                        R$ ${completo}
+                        <small>/mês</small>
+                    </h2>
+
+                    <ul>
+                        <li>✔ Cobertura total</li>
+                        <li>✔ Vidros e terceiros</li>
+                        <li>✔ Guincho ilimitado</li>
+                    </ul>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        `;
+
+    }, 4500);
 
 });
-

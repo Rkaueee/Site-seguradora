@@ -1,298 +1,409 @@
-
-
-/* ================================
-   cotacao.css — RKAR Seguros
-   Passo 2: Estilo da simulação
-   ================================ */
- 
-/* ---- VARIÁVEIS (mesmas do seu site) ---- */
 :root {
     --cor-primaria: #1a5cff;
     --cor-secundaria: #eaf2ff;
     --cor-texto: #0b1b3f;
     --cor-fundo: #f8fbff;
-    --cor-sucesso: #16a34a;
 }
- 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+
+/* RESET */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
- 
-body {
-    font-family: 'Inter', sans-serif;
-    background: linear-gradient(180deg, #f8fbff, #eef3ff);
-    min-height: 100vh;
+
+body{
+    font-family:Arial, sans-serif;
+    background:var(--cor-fundo);
 }
- 
-/* ================================
-   CABEÇALHO
-   ================================ */
-.cabecalho {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 8%;
-    background: rgb(0, 11, 60);
+
+/* SECTION */
+
+.cotacao{
+    width:100%;
+    padding:120px 8%;
+    background:linear-gradient(
+        to bottom,
+        #f8fbff,
+        #eef5ff
+    );
 }
- 
-.logo-link {
-    text-decoration: none;
+
+/* CONTAINER */
+
+.cotacao-container{
+    width:100%;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:80px;
 }
- 
-.logo-texto {
-    font-weight: 700;
-    font-size: 20px;
-    color: #0057FF;
+
+/* ESQUERDA */
+
+.cotacao-info{
+    flex:1;
+    max-width:650px;
 }
- 
-.logo-texto small {
-    display: block;
-    font-size: 11px;
-    color: #888;
-    font-weight: 400;
+
+.tag{
+    display:inline-block;
+    padding:12px 22px;
+    background:#dfeaff;
+    color:var(--cor-primaria);
+    border-radius:50px;
+    font-size:14px;
+    font-weight:bold;
 }
- 
-.cabecalho-subtitulo {
-    font-size: 13px;
-    color: rgba(255,255,255,0.6);
+
+.cotacao-info h1{
+    font-size:72px;
+    line-height:1.05;
+    color:var(--cor-texto);
+    margin-top:30px;
 }
- 
-/* ================================
-   PÁGINA PRINCIPAL
-   ================================ */
-.simulacao-pagina {
-    max-width: 560px;        /* largura máxima do formulário */
-    margin: 60px auto;       /* centraliza na página */
-    padding: 0 20px;
+
+.cotacao-info h1 span{
+    color:var(--cor-primaria);
 }
- 
+
+.cotacao-info p{
+    font-size:20px;
+    line-height:1.7;
+    color:#5b6b88;
+    margin-top:30px;
+    max-width:520px;
+}
+
+.vantagens{
+    margin-top:40px;
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+}
+
+.item{
+    display:flex;
+    align-items:center;
+    gap:15px;
+    color:var(--cor-texto);
+    font-size:18px;
+    font-weight:600;
+}
+
+.item i{
+    width:32px;
+    height:32px;
+    border-radius:50%;
+    background:var(--cor-primaria);
+    color:#fff;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-style:normal;
+    font-size:14px;
+}
+
+/* FORM */
+
+.cotacao-box{
+    width:470px;
+    background:#fff;
+    padding:45px;
+    border-radius:32px;
+    box-shadow:
+    0 15px 40px rgba(26,92,255,0.08);
+    border:1px solid #edf2ff;
+}
+
+.cotacao-box h2{
+    color:var(--cor-texto);
+    font-size:38px;
+    margin-bottom:25px;
+}
+
+/* BARRA */
+
+.linha{
+    width:100%;
+    height:8px;
+    background:#edf2ff;
+    border-radius:50px;
+    overflow:hidden;
+    margin-bottom:35px;
+}
+
+.linha::after{
+    content:"";
+    display:block;
+    width:60%;
+    height:100%;
+    background:var(--cor-primaria);
+    border-radius:50px;
+}
+
+/* INPUTS */
+
+.input-box{
+    display:flex;
+    flex-direction:column;
+    margin-bottom:22px;
+    width:100%;
+}
+
+.input-box label{
+    margin-bottom:10px;
+    color:var(--cor-texto);
+    font-size:14px;
+    font-weight:600;
+}
+
+.input-box input{
+    width:100%;
+    height:60px;
+    border-radius:18px;
+    border:2px solid #edf2ff;
+    background:#f9fbff;
+    padding:0 18px;
+    outline:none;
+    font-size:15px;
+    color:var(--cor-texto);
+    transition:0.3s;
+}
+
+.input-box input:focus{
+    border-color:var(--cor-primaria);
+    background:#fff;
+    box-shadow:0 0 0 5px rgba(26,92,255,0.08);
+}
+
+/* DUPLO */
+
+.duplo{
+    display:flex;
+    gap:15px;
+}
+
+.duplo .input-box{
+    flex:1;
+}
+
+/* BOTÃO */
+
+button{
+    width:100%;
+    height:62px;
+    border:none;
+    border-radius:18px;
+    background:var(--cor-primaria);
+    color:#fff;
+    font-size:16px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:0.3s;
+    margin-top:10px;
+}
+
+button:hover{
+    transform:translateY(-3px);
+    box-shadow:
+    0 12px 25px rgba(26,92,255,0.25);
+}
+
+/* LOADING */
+
+.loading{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    margin-top:28px;
+    color:#6d7b94;
+    font-size:15px;
+}
+
+.loading span{
+    width:11px;
+    height:11px;
+    border-radius:50%;
+    background:var(--cor-primaria);
+    animation:pulse 1s infinite;
+}
+
+@keyframes pulse{
+
+    0%{
+        transform:scale(0.8);
+        opacity:0.5;
+    }
+
+    100%{
+        transform:scale(1.2);
+        opacity:1;
+    }
+
+}
+
+/* RESPONSIVO */
+
+@media(max-width:980px){
+
+    .cotacao-container{
+        flex-direction:column;
+    }
+
+    .cotacao-info h1{
+        font-size:52px;
+    }
+
+    .cotacao-box{
+        width:100%;
+    }
+
+}
+/* =========================
+   RESULTADO DA COTAÇÃO
+========================= */
+
+.resultado-cotacao{
+    margin-top:30px;
+    animation:fadeUp 0.5s ease;
+}
+
+/* TOPO */
+
+.resultado-topo{
+    display:flex;
+    align-items:center;
+    gap:15px;
+    margin-bottom:25px;
+}
+
+.check{
+    width:55px;
+    height:55px;
+    border-radius:50%;
+    background:var(--cor-primaria);
+    color:#fff;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:22px;
+    font-weight:bold;
+    flex-shrink:0;
+}
+
+.resultado-topo h3{
+    color:var(--cor-texto);
+    font-size:24px;
+}
+
+.resultado-topo p{
+    color:#6b7a96;
+    margin-top:4px;
+    font-size:14px;
+}
+
+/* PLANOS */
+
+.planos{
+    display:flex;
+    flex-direction:column;
+    gap:18px;
+}
+
+/* CARD */
+
+.plano{
+    position:relative;
+    background:#f8fbff;
+    border:2px solid #e4edff;
+    border-radius:24px;
+    padding:24px;
+    transition:0.3s;
+}
+
+.plano:hover{
+    transform:translateY(-4px);
+}
+
 /* TÍTULO */
-.simulacao-titulo {
-    text-align: center;
-    margin-bottom: 36px;
+
+.plano span{
+    font-size:12px;
+    font-weight:bold;
+    letter-spacing:1px;
+    color:#000000;
 }
- 
-.simulacao-titulo h1 {
-    font-size: 32px;
-    color: var(--cor-texto);
-    font-weight: 700;
-    margin-bottom: 10px;
+
+/* PREÇO */
+
+.plano h2{
+    font-size:42px;
+    color:var(--cor-primaria);
+    margin-top:10px;
 }
- 
-.simulacao-titulo p {
-    color: #6c7a96;
-    font-size: 15px;
+
+.plano h2 small{
+    font-size:16px;
+    color:#6d7a95;
 }
- 
-/* ================================
-   FORMULÁRIO
-   ================================ */
-.formulario {
-    background: white;
-    border-radius: 20px;
-    padding: 36px;
-    box-shadow: 0 10px 40px rgba(0,0,0,0.08);
-    display: flex;
-    flex-direction: column;  /* campos empilhados verticalmente */
-    gap: 20px;               /* espaço entre cada campo */
+
+/* LISTA */
+
+.plano ul{
+    margin-top:18px;
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+    list-style:none;
 }
- 
-/* ---- GRUPO DE CAMPO (label + input) ---- */
-.campo {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
+
+.plano ul li{
+    color:var(--cor-texto);
+    font-size:15px;
 }
- 
-/* ---- LABEL ---- */
-.campo label {
-    font-size: 13px;
-    font-weight: 600;
-    color: var(--cor-texto);
+
+/* PREMIUM */
+
+.destaque{
+    border-color:var(--cor-primaria);
+
+    background:linear-gradient(
+        to bottom,
+        #ffffff,
+        #f1f6ff
+    );
+
+    box-shadow:
+    0 10px 30px rgba(26,92,255,0.12);
 }
- 
-/* ---- INPUT E SELECT (mesmos estilos) ---- */
-.campo input,
-.campo select {
-    padding: 12px 14px;
-    border: 1.5px solid #d1d9f0;
-    border-radius: 10px;
-    font-size: 14px;
-    font-family: 'Inter', sans-serif;
-    color: var(--cor-texto);
-    background: #fff;
-    transition: border-color 0.2s;  /* animação suave no foco */
-    outline: none;
+
+.mais-vendido{
+    position:absolute;
+    top:-12px;
+    right:20px;
+    background:var(--cor-primaria);
+    color:#fff;
+    font-size:11px;
+    font-weight:bold;
+    padding:8px 14px;
+    border-radius:50px;
 }
- 
-/* Borda azul quando o usuário clica no campo */
-.campo input:focus,
-.campo select:focus {
-    border-color: var(--cor-primaria);
-    box-shadow: 0 0 0 3px rgba(26, 92, 255, 0.1);
-}
- 
-/* ---- BOTÃO CALCULAR ---- */
-.btn-calcular {
-    background: var(--cor-primaria);
-    color: white;
-    padding: 15px;
-    border-radius: 12px;
-    border: none;
-    cursor: pointer;
-    font-size: 16px;
-    font-weight: 700;
-    font-family: 'Inter', sans-serif;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    transition: 0.3s;
-    margin-top: 8px;
-}
- 
-.btn-calcular:hover {
-    background: #0040cc;
-    box-shadow: 0 10px 25px rgba(26, 92, 255, 0.4);
-    transform: translateY(-2px);
-}
- 
-/* ================================
-   RESULTADO
-   ================================ */
-.resultado {
-    background: white;
-    border-radius: 20px;
-    padding: 40px 36px;
-    box-shadow: 0 10px 40px rgba(0,0,0,0.08);
-    text-align: center;
- 
-    /* Animação de entrada */
-    animation: entrar 0.4s ease;
-}
- 
-/* Animação: sobe de baixo suavemente */
-@keyframes entrar {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
+
+/* ANIMAÇÃO */
+
+@keyframes fadeUp{
+
+    from{
+        opacity:0;  
+        transform:translateY(20px);
     }
-    to {
-        opacity: 1;
-        transform: translateY(0);
+
+    to{
+        opacity:1;
+        transform:translateY(0);
     }
+
 }
- 
-/* Ícone verde de check */
-.resultado-icone {
-    font-size: 48px;
-    color: var(--cor-sucesso);
-    margin-bottom: 16px;
-}
- 
-.resultado-ola {
-    font-size: 20px;
-    font-weight: 600;
-    color: var(--cor-texto);
-    margin-bottom: 6px;
-}
- 
-.resultado-tipo {
-    font-size: 14px;
-    color: #6c7a96;
-    margin-bottom: 28px;
-}
- 
-/* Caixa de destaque com o preço */
-.resultado-valor {
-    background: var(--cor-secundaria);
-    border-radius: 16px;
-    padding: 24px;
-    margin-bottom: 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-}
- 
-.resultado-label {
-    font-size: 13px;
-    color: #6c7a96;
-    font-weight: 500;
-}
- 
-/* O preço em destaque */
-.resultado-preco {
-    font-size: 42px;
-    font-weight: 700;
-    color: var(--cor-primaria);
-    line-height: 1;
-}
- 
-.resultado-aviso {
-    font-size: 12px;
-    color: #9ca3af;
-    margin-bottom: 24px;
-    line-height: 1.6;
-}
- 
-/* Botões de ação */
-.resultado-acoes {
-    display: flex;
-    gap: 12px;
-    justify-content: center;
-    flex-wrap: wrap;
-}
- 
-.btn-contratar {
-    background: var(--cor-primaria);
-    color: white;
-    padding: 12px 28px;
-    border-radius: 10px;
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 14px;
-    transition: 0.3s;
-}
- 
-.btn-contratar:hover {
-    background: #0040cc;
-}
- 
-.btn-nova {
-    background: none;
-    border: 1.5px solid var(--cor-primaria);
-    color: var(--cor-primaria);
-    padding: 12px 28px;
-    border-radius: 10px;
-    font-size: 14px;
-    font-weight: 600;
-    cursor: pointer;
-    font-family: 'Inter', sans-serif;
-    transition: 0.3s;
-}
- 
-.btn-nova:hover {
-    background: var(--cor-secundaria);
-}
- 
-/* ================================
-   RESPONSIVO
-   ================================ */
-@media (max-width: 600px) {
-    .cabecalho {
-        flex-direction: column;
-        gap: 8px;
-        text-align: center;
-    }
- 
-    .formulario,
-    .resultado {
-        padding: 24px 20px;
-    }
- 
-    .resultado-preco {
-        font-size: 32px;
-    }
-}
+

@@ -1,176 +1,113 @@
-
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simulação — Rkar Seguros</title>
- 
-    <!-- Mesma fonte do seu site -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
- 
-    <!-- CSS da simulação (vamos criar juntos) -->
+
+    <title>RKAR Seguros</title>
+
     <link rel="stylesheet" href="cotacao.css">
 </head>
- 
 <body>
- 
-    <!-- ================================
-         CABEÇALHO DA PÁGINA
-         ================================ -->
-    <header class="cabecalho">
-        <!-- Logo que volta para o site principal -->
-        <a href="index.html" class="logo-link">
-            <span class="logo-texto">RKAR <small>SEGUROS</small></span>
-        </a>
-        <p class="cabecalho-subtitulo">Simulação gratuita · Sem compromisso</p>
-    </header>
- 
-    <!-- ================================
-         SEÇÃO PRINCIPAL
-         ================================ -->
-    <main class="simulacao-pagina">
- 
-        <!-- Título da página -->
-        <div class="simulacao-titulo">
-            <h1>Simule seu seguro agora</h1>
-            <p>Preencha os campos abaixo e veja o valor estimado em segundos</p>
-        </div>
- 
-        <!-- ================================
-             FORMULÁRIO
-             Cada <div class="campo"> é
-             um grupo: label + input
-             ================================ -->
-        <form class="formulario" id="formulario-cotacao">
- 
-            <!-- CAMPO 1: Nome -->
-            <div class="campo">
-                <!--
-                    <label> = texto que aparece acima do campo
-                    for="nome" conecta o label ao input de id="nome"
-                -->
-                <label for="nome">Seu nome</label>
-                <input
-                    type="text"
-                    id="nome"
-                    placeholder="Ex: João Silva"
-                    required
-                >
-                <!-- required = obriga o usuário a preencher -->
-            </div>
- 
-            <!-- CAMPO 2: Tipo de seguro -->
-            <div class="campo">
-                <label for="tipo">Tipo de seguro</label>
-                <!--
-                    <select> = lista suspensa
-                    Cada <option> é uma opção
-                    value="auto" é o valor que o JS vai ler
-                -->
-                <select id="tipo" required>
-                    <option value="">Selecione...</option>
-                    <option value="auto">🚗 Seguro Auto</option>
-                    <option value="vida">❤️ Seguro de Vida</option>
-                    <option value="residencial">🏠 Residencial</option>
-                    <option value="empresarial">🏢 Empresarial</option>
-                </select>
-            </div>
- 
-            <!-- CAMPO 3: Ano do veículo (só aparece se for Auto) -->
-            <div class="campo" id="campo-ano" style="display:none">
-                <label for="ano">Ano do veículo</label>
-                <select id="ano">
-                    <option value="novo">2022 ou mais novo</option>
-                    <option value="medio">2015 a 2021</option>
-                    <option value="antigo">Antes de 2015</option>
-                </select>
-            </div>
- 
-            <!-- CAMPO 4: Valor do bem -->
-            <div class="campo">
-                <label for="valor">Valor do bem (R$)</label>
-                <input
-                    type="number"
-                    id="valor"
-                    placeholder="Ex: 50000"
-                    min="1000"
-                    required
-                >
-                <!-- type="number" só aceita números -->
-            </div>
- 
-            <!-- CAMPO 5: CEP -->
-            <div class="campo">
-                <label for="cep">CEP</label>
-                <input
-                    type="text"
-                    id="cep"
-                    placeholder="00000-000"
-                    maxlength="9"
-                >
-            </div>
- 
-            <!-- CAMPO 6: Telefone -->
-            <div class="campo">
-                <label for="telefone">WhatsApp para contato</label>
-                <input
-                    type="tel"
-                    id="telefone"
-                    placeholder="(11) 99999-9999"
-                >
-            </div>
- 
-            <!-- BOTÃO DE CALCULAR -->
-            <button type="button" class="btn-calcular" id="btn-calcular">
-                <i class="fas fa-calculator"></i>
-                Calcular agora
-            </button>
- 
-        </form>
- 
-        <!-- ================================
-             RESULTADO
-             Fica escondido até o JS mostrar
-             display:none = invisível
-             ================================ -->
-        <div class="resultado" id="resultado" style="display:none">
- 
-            <!-- Ícone de sucesso -->
-            <div class="resultado-icone">
-                <i class="fas fa-check-circle"></i>
-            </div>
- 
-            <!-- Nome do cliente (preenchido pelo JS) -->
-            <p class="resultado-ola">Olá, <span id="resultado-nome"></span>!</p>
- 
-            <!-- Tipo escolhido (preenchido pelo JS) -->
-            <p class="resultado-tipo">Simulação para: <strong id="resultado-tipo"></strong></p>
- 
-            <!-- Valor calculado (preenchido pelo JS) -->
-            <div class="resultado-valor">
-                <span class="resultado-label">Estimativa mensal</span>
-                <span class="resultado-preco" id="resultado-preco">R$ 0,00</span>
-            </div>
- 
-            <!-- Aviso importante -->
-            <p class="resultado-aviso">
-                ⚠️ Este é um valor estimado. Um de nossos consultores entrará em contato para confirmar.
+
+<section class="cotacao">
+
+    <div class="overlay"></div>
+
+    <div class="cotacao-container">
+
+        <!-- ESQUERDA -->
+        <div class="cotacao-info">
+
+           <div class="item">
+    <i>✔</i>
+    <span>Cotação Instantânea</span>
+</div>
+
+            <h1>
+                Proteja seu carro
+                <span>com segurança.</span>
+            </h1>
+
+            <p>
+                Faça sua cotação online com rapidez,
+                segurança e atendimento especializado.
             </p>
- 
-            <!-- Botões de ação -->
-            <div class="resultado-acoes">
-                <a href="#" class="btn-contratar">Quero contratar!</a>
-                <button class="btn-nova" id="btn-nova">Fazer nova simulação</button>
+
+            <div class="vantagens">
+
+                <div class="item">
+                    ✔ Cotação Instantânea
+                </div>
+
+                <div class="item">
+                    ✔ Atendimento Especializado
+                </div>
+
+                <div class="item">
+                    ✔ Mais de 12 seguradoras
+                </div>
+
             </div>
- 
+
         </div>
- 
-    </main>
- 
-    <!-- JS da simulação -->
-    <script src="cotacao.js" defer></script>
- 
+
+        <!-- DIREITA -->
+        <div class="cotacao-box">
+
+            <h2>Faça sua simulação</h2>
+
+            <div class="linha"></div>
+
+            <form id="formCotacao">
+
+                <div class="input-box">
+                    <label>Nome completo</label>
+                    <input type="text" placeholder="Digite seu nome">
+                </div>
+
+                <div class="input-box">
+                    <label>WhatsApp</label>
+                    <input type="text" placeholder="(11) 99999-9999">
+                </div>
+
+                <div class="duplo">
+
+                    <div class="input-box">
+                        <label>Modelo</label>
+                        <input type="text" placeholder="Ex: Civic">
+                    </div>
+
+                    <div class="input-box">
+                        <label>Ano</label>
+                        <input type="text" placeholder="2024">
+                    </div>
+
+                </div>
+
+                <div class="input-box">
+                    <label>CEP</label>
+                    <input type="text" placeholder="00000-000">
+                </div>
+
+                <button type="submit">
+                    SIMULAR AGORA
+                </button>
+
+            </form>
+
+            <div class="loading" id="loading">
+                <span></span>
+                <p>Analisando perfil...</p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<script src="cotacao.js"></script>
+
 </body>
 </html>
